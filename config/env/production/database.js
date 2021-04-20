@@ -1,5 +1,7 @@
 const { parse } = require("pg-connection-string");
 
+const { parse } = require("pg-connection-string");
+
 module.exports = ({ env }) => {
   const { host, port, database, user, password } = parse(env("DATABASE_URL"));
 
@@ -10,11 +12,11 @@ module.exports = ({ env }) => {
         connector: "bookshelf",
         settings: {
           client: "postgres",
-          host: config.host,
-          port: config.port,
-          database: config.database,
-          username: config.user,
-          password: config.password,
+          host,
+          port,
+          database,
+          username: user,
+          password,
           ssl: { rejectUnauthorized: false }
         },
         options: {
