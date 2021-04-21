@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "articles",
   "info": {
-    "name": "article"
+    "name": "article",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -31,31 +32,15 @@
     "date_edited": {
       "type": "date"
     },
+    "categories": {
+      "collection": "category",
+      "via": "articles"
+    },
     "card_image": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false
+      "type": "string"
     },
     "article_banner": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false
-    },
-    "categories": {
-      "via": "articles",
-      "collection": "category"
+      "type": "string"
     }
   }
 }
